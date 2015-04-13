@@ -5,4 +5,9 @@ class LinkedListItem
   def initialize(payload)
     @payload = payload
   end
+
+  def next_item
+    @next_item
+  end
+
 end
