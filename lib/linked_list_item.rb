@@ -2,12 +2,6 @@ class LinkedListItem
   include Comparable
   attr_reader :payload, :next_item, :name
 
-  def >(other)
-    if self.name > other.name
-      return true
-    end
-  end
-
   def initialize(payload)
     @payload = payload
   end
@@ -28,4 +22,12 @@ class LinkedListItem
     end
   end
 
+  def >(other)
+    self.payload > other.payload
   end
+
+  def ==(other)
+    self.payload == other.payload
+  end
+
+end
