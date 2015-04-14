@@ -22,12 +22,12 @@ class LinkedListItem
     end
   end
 
-  def >(other)
-    self.payload > other.payload
+  def <=>(other)
+    self.payload <=> other.payload
   end
 
-  def ==(other)
-    self.payload == other.payload
+  def ===(item)
+    self.equal?(item)
   end
 
 end
