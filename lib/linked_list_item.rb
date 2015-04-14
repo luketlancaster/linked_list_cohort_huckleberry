@@ -1,25 +1,19 @@
 class LinkedListItem
   include Comparable
-  attr_reader :payload, :next_item, :name
+  attr_reader :payload
+  attr_reader :next_item
 
   def initialize(payload)
     @payload = payload
   end
 
-  def next_item=(next_item)
-    if next_item == self
-      raise ArgumentError, "Can't set self as next item"
-    else
-      @next_item = next_item
-    end
+  def next_item=(lli)
+    raise ArgumentError if lli == self
+    @next_item = lli
   end
 
   def last?
-    if self.next_item == nil
-      return true
-    else
-      return false
-    end
+    next_item.nil?
   end
 
   def <=>(other)
