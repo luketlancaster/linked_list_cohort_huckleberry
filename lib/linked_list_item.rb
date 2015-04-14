@@ -17,7 +17,25 @@ class LinkedListItem
   end
 
   def <=>(other)
-    self.payload <=> other.payload
+    self.payload.to_s <=> other.payload.to_s
+  end
+
+  def >(other)
+    if self.payload.class == Symbol
+      (self.payload.class == Symbol) <=> (other.payload.class != Symbol)
+    else
+      self.payload.to_s <=> other.payload.to_s
+    end
+  end
+
+  def <(other)
+    if self.payload.class == Symbol and other.payload.class != Symbol
+      (self.payload.class == Symbol) <=> (other.payload.class != Symbol)
+    elsif self.payload.class == Symbol and other.payload.class == Symbol
+      self.payload <=> other.payload
+    else
+      self.payload.to_s <=> other.payload.to_s
+    end
   end
 
   def ===(item)
