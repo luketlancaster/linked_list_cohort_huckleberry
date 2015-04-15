@@ -28,6 +28,33 @@ class LinkedList
       @last_item.next_item = LinkedListItem.new(payload)
       @last_item = @last_item.next_item
     end
+  end
+
+  def size
+    count = 0
+    if @first_item.nil?
+      return count
+    end
+
+    if @first_item == @last_item
+      count += 1
+      return count
+    end
+
+    @next_item = @first_item
+
+    while @next_item.next_item.nil? == false
+      @next_item = @next_item.next_item
+      count += 1
+      if @next_item.next_item.nil?
+        count += 1
+        return count
+      end
+    end
+
+    if @next_item.next_item.nil?
+      return count
+    end
 
   end
 
