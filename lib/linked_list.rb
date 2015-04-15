@@ -55,7 +55,16 @@ class LinkedList
     if @next_item.next_item.nil?
       return count
     end
+  end
 
+  def last
+    if @first_item.nil?
+      return nil
+    end
+
+    if @first_item.nil? == false
+      return @last_item.payload
+    end
   end
 
 
