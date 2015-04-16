@@ -3,6 +3,14 @@ require_relative 'linked_list_item'
 class LinkedList
   attr_reader :first_item
 
+  def initialize(*payload)
+    unless payload.empty?
+      payload.each do |load|
+        self.push(load)
+      end
+    end
+  end
+
 
   def get(index)
     if index < 0
