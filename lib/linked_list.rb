@@ -69,5 +69,16 @@ class LinkedList
     end
   end
 
+  def to_s
+    base = "| |"
+    if @first_item.nil?
+      return base
+    elsif @first_item == @last_item
+      return "| #{@first_item.payload} |"
+    else
+
+    end
+  end
+
 
 end
