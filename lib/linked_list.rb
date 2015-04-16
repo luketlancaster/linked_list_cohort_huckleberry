@@ -4,20 +4,18 @@ class LinkedList
   attr_reader :first_item
 
 
-  def get(nth_item)
-    if nth_item < 0
+  def get(index)
+    if index < 0
       raise IndexError, "Index cannot be a negative number"
-    elsif nth_item == 0
+    elsif index == 0
       @first_item.payload
     else
-      count = 0
       current_node = @first_item
-      while count < nth_item
+      index.times do
         if current_node.nil?
           raise IndexError, "This index does not exist"
         else
         current_node = current_node.next_item
-        count += 1
         end
       end
       current_node.payload
