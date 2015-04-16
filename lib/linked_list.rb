@@ -30,6 +30,10 @@ class LinkedList
     end
   end
 
+  def [](index)
+    self.get(index)
+  end
+
   def push(payload)
     if @first_item.nil?
       @first_item = LinkedListItem.new(payload)
