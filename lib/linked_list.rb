@@ -70,13 +70,15 @@ class LinkedList
   end
 
   def to_s
-    base = "| |"
+    base = "| "
     if @first_item.nil?
-      return base
-    elsif @first_item == @last_item
-      return "| #{@first_item.payload} |"
-    else
-
+      return "| |"
+    end
+    if
+     self.size.times do |i|
+     base += "#{self.get(i)}, "
+    end
+     return base.sub(/, (?!.*, )/, " |")
     end
   end
 
