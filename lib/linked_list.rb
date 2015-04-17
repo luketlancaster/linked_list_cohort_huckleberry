@@ -30,12 +30,12 @@ class LinkedList
     self.get(index)
   end
 
-  def []=(index, payload)
+  def []=(index, new_payload)
     current_node = first_item
     index.times do
       current_node = current_node.next_item
     end
-    current_node.payload = payload
+    current_node.payload = new_payload
   end
 
   def push(payload)
