@@ -28,4 +28,8 @@ class LinkedListItem
     self.equal?(item)
   end
 
+  def payload=(new_payload)
+    @payload = new_payload
+  end
+
 end
