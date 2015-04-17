@@ -31,18 +31,22 @@ class LinkedList
   end
 
   def []=(index, payload)
-    print self.get(index)
+    current_node = first_item
+    index.times do
+      current_node = current_node.next_item
+    end
+    current_node.payload = payload
   end
 
   def push(payload)
+    new_item = LinkedListItem.new(payload)
     if @first_item.nil?
-      @first_item = LinkedListItem.new(payload)
-      @last_item = @first_item
+      @first_item = new_item
     else
-      @last_item.next_item = LinkedListItem.new(payload)
-      @last_item = @last_item.next_item
+      @last_item.next_item = new_item
     end
     @size += 1
+    @last_item = new_item
   end
 
   def last
