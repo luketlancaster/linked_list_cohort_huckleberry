@@ -11,7 +11,6 @@ class LinkedList
     end
   end
 
-
   def get(index)
     if index < 0
       raise IndexError, "Index cannot be a negative number"
@@ -32,6 +31,10 @@ class LinkedList
 
   def [](index)
     self.get(index)
+  end
+
+  def []=(index, payload)
+    print self.get(index)
   end
 
   def push(payload)
@@ -93,6 +96,5 @@ class LinkedList
      return base.sub(/, (?!.*, )/, " |")
     end
   end
-
 
 end
