@@ -26,6 +26,10 @@ class LinkedList
     end
   end
 
+  def get(index)
+    get_item(index).payload
+  end
+
   alias [] get
 
   def []=(index, new_payload)
