@@ -13,16 +13,16 @@ class LinkedList
     end
   end
 
-  def get(index)
+  def get_item(index)
     raise IndexError if index < 0 or index > size
     if index == 0
-      @first_item.payload
+      @first_item
     else
       current_node = @first_item
       index.times do
         current_node = current_node.next_item
       end
-      current_node.payload
+      current_node
     end
   end
 
