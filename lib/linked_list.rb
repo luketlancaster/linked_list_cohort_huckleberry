@@ -8,7 +8,7 @@ class LinkedList
     @size = 0
     unless payloads.empty?
       payloads.each do |payload|
-        self.push(payload)
+        push(payload)
       end
     end
   end
