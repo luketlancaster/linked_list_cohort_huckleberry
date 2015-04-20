@@ -1,7 +1,7 @@
 require_relative 'linked_list_item'
 
 class LinkedList
-  attr_reader :first_item
+  attr_accessor :first_item
   attr_reader :size
 
   def initialize(*payload)
@@ -47,6 +47,28 @@ class LinkedList
     end
     @size += 1
     @last_item = new_item
+  end
+
+  def delete(index)
+    current_node = first_item
+    if index == 0
+      @first_item = current_node.next_item
+    end
+    if index >0
+      index -= 1
+      index.times do
+        current_node = current_node.next_item
+      end
+      if current_node.nil?
+        raise IndexError
+      end
+      current_node.next_item = current_node.next_item.next_item
+    end
+    @size = self.size - 1
+  end
+
+  def size
+    @size
   end
 
   def last
