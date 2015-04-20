@@ -51,6 +51,20 @@ class LinkedList
     end
   end
 
+  def index(payload)
+    count = 0
+    current_item = @first_item
+    return nil if @first_item.nil?
+    while current_item.nil? == false and current_item.payload != payload
+      current_item = current_item.next_item
+      count += 1
+    end
+    if current_item.nil?
+      return nil
+    end
+    count
+  end
+
   def push(payload)
     new_item = LinkedListItem.new(payload)
     if @first_item.nil?
