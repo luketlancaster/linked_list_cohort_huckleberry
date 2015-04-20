@@ -26,9 +26,7 @@ class LinkedList
     end
   end
 
-  def [](index)
-    self.get(index)
-  end
+  alias [] get
 
   def []=(index, new_payload)
     current_node = first_item
