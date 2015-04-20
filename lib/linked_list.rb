@@ -1,20 +1,20 @@
 require_relative 'linked_list_item'
 
 class LinkedList
-  attr_accessor :first_item
+  attr_reader :first_item
   attr_reader :size
 
-  def initialize(*payload)
+  def initialize(*payloads)
     @size = 0
-    unless payload.empty?
-      payload.each do |load|
-        self.push(load)
+    unless payloads.empty?
+      payloads.each do |payload|
+        self.push(payload)
       end
     end
   end
 
   def get(index)
-    raise IndexError if index < 0 or index > self.size
+    raise IndexError if index < 0 or index > size
     if index == 0
       @first_item.payload
     else
@@ -51,24 +51,17 @@ class LinkedList
 
   def delete(index)
     current_node = first_item
-    if index == 0
-      @first_item = current_node.next_item
-    end
-    if index >0
+    @first_item = current_node.next_item if index.equal?(0)
+    if index > 0
       index -= 1
-      index.times do
-        current_node = current_node.next_item
-      end
+      index.times {current_node = current_node.next_item}
       if current_node.nil?
         raise IndexError
+      else
+        current_node.next_item = current_node.next_item.next_item
       end
-      current_node.next_item = current_node.next_item.next_item
     end
-    @size = self.size - 1
-  end
-
-  def size
-    @size
+    @size -= 1
   end
 
   def last
@@ -80,7 +73,7 @@ class LinkedList
   def to_s
     base = "| "
     if @first_item.nil?
-      "| |"
+      base << "|"
     else
      size.times do |i|
       base << "#{get(i)}, "
