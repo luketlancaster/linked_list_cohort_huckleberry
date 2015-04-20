@@ -58,13 +58,13 @@ class LinkedList
   def to_s
     base = "| "
     if @first_item.nil?
-      return "| |"
+      "| |"
+    else
+     size.times do |i|
+      base << "#{get(i)}, "
     end
-    if
-     self.size.times do |i|
-     base += "#{self.get(i)}, "
-    end
-     return base.sub(/, (?!.*, )/, " |")
+     base.sub!(/, (?!.*, )/, " |")
+     base
     end
   end
 
