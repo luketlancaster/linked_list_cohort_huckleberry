@@ -97,6 +97,18 @@ class LinkedList
     end
   end
 
+  def sorted?
+    if size < 2
+      true
+    elsif @first_item == @first_item.next_item
+      true
+    elsif @first_item > @first_item.next_item
+      false
+    elsif @first_item < @first_item.next_item
+      true
+    end
+  end
+
   def to_s
     base = "| "
     if @first_item.nil?
